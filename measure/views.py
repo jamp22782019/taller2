@@ -9,10 +9,15 @@ def measure(request):
     # Verifica si hay un parámetro value en la petición GET
     if 'value' in request.GET:
         value = request.GET['value']
+        longitud = request.GET['longitud']
+        latitud = request.GET['latitud']
+        area = request.GET['area']
+
+
         # Verifica si el value no esta vacio
         if value:
             # Crea el json para realizar la petición POST al Web Service
-            args = {'type': 'cm', 'value': value}
+            args = {'type': 'cm', 'value': value,'longitud':longitud,'latitud':latitud,"area":area}
             response = requests.post('http://127.0.0.1:8000/ultrasonic/', args)
             # Convierte la respuesta en JSON
             measure_json = response.json()

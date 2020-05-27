@@ -1,13 +1,22 @@
 {% extends 'measure/base.html' %}
 {% block content %}
 <div class="container">
-    <form method="get">
+    <form method="get" style="margin-top:20px">
+        <label for="value">VALOR</label>
         <input type="number" name="value">
+        <label for="latitud">LATITUD</label>
+        <input type="number" name="latitud">
+        <label for="longitud">LONGITUD</label>
+        <input type="number" name="longitud">
+        <label for="area">AREA</label>
+        <input type="number" name="area">
+
+
         <button type="submit">Adicionar</button>
     </form>
     {% for measure in measures %}
     <ul class="list-group">
-        <li class="list-group-item">{{measure.type}} = {{measure.value}}</li>
+        <li class="list-group-item"> <b>{{measure.type}}</b> = {{measure.value}}      -         <b>Latitud</b> = {{measure.latitud}}        -     <b>Longitud</b> = {{measure.value}}         -       <b>Area</b> = {{measure.area}} </li>
     </ul>
     {% endfor %}
 </div>
